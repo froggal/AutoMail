@@ -10,12 +10,12 @@ dotenv_file = dotenv.find_dotenv()
 dotenv.load_dotenv(dotenv_file)
 
 # load account/server
-pw = os.environ("PASSWORD")
-send = os.environ("SENDER")
-receive = os.environ("RECEIVER")
+pw = os.getenv("PASSWORD")
+send = os.getenv("SENDER")
+receive = os.getenv("RECEIVER")
 
 # set up SMTP
-smtp = smtplib.SMTP(os.environ["SERVER"], os.environ["PORT"])
+smtp = smtplib.SMTP(os.getenv("SERVER"), os.getenv("PORT"))
 smtp.ehlo()
 smtp.starttls()
 smtp.login(send, pw)
